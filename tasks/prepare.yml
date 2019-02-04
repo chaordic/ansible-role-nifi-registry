@@ -11,7 +11,7 @@
     groups: "root,nifi"
     append: "yes"
     state: "present"
-    create_home: "no"
+    createhome: "no"
     system: "yes"
 
 - name: Create install directory
