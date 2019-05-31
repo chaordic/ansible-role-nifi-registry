@@ -9,6 +9,11 @@ nifi_registry_servers: "{{ groups['nifi_registry_servers'] }}"
 nifi_registry_user: "nifi"
 nifi_registry_group: "nifi"
 
+#push config to remote CVS
+git_remote_branch: origin
+git_remote_user: john
+git_remote_token: 1234567890
+
 config_dirs:
   nifi_registry_install: "/opt/nifi-registry/releases"
   nifi_registry_home: "/opt/nifi-registry/releases/current"
