@@ -1,2 +1,6 @@
 ---
 # handlers file for ansible-role-nifi-registry
+
+- name: Re-read systemd configs 
+  systemd:
+    daemon_reload: yes

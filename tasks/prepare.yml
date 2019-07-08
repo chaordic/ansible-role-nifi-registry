@@ -21,6 +21,26 @@
     owner: "{{ nifi_registry_user }}"
     group: "{{ nifi_registry_group }}"
 
+- name: Flow directory
+  file:
+    path: "{{ flow_storage_config }}"
+    state: "directory"
+    owner: "{{ nifi_registry_user }}"
+    group: "{{ nifi_registry_group }}"
+
+- name: Create Git Flow directory
+  file:
+    path: "{{ git_remote_config }}"
+    state: "directory"
+    owner: "{{ nifi_registry_user }}"
+    group: "{{ nifi_registry_group }}"
+
+- name: Getting source code
+  git:
+    repo: https://{{ git_remote_token }}@github.com/{{ git_remote_organization}}/{{ git_remote_repo }}.git
+    accept_hostkey: yes
+    dest: "{{ git_remote_config }}/{{ git_remote_repo}}"
+
 - name: Set NiFi Registry home
   lineinfile:
     path: "/etc/environment"
